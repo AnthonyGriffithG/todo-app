@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 
 const todo = () => {
+  const [list, setList] = useState([]);
   return (
     <div className='todo'>
       <h1 className='title'>Tasks Manager</h1>
