@@ -1,11 +1,10 @@
 import "./styles/general.css";
+import Todo from './components/todo.jsx';
 
 function App() {
 
   return (
-    <>
-      Hello World
-    </>
+     <Todo />
   )
 }
 
