@@ -1,0 +1,28 @@
+.task-form {
+    display: flex;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: #99ff9c30 0px 1px 2px 0px, #99ff9c15 0px 2px 6px 2px;
+}
+
+.task-form__input {
+    flex-grow: 1;
+    height: 20px;
+    padding: 1em;
+    font-family: Poppins;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.task-form__button {
+    border: none;
+    background-color: #6affba;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: 600;
+    min-width: 70px;
+    text-transform: uppercase;
+
+}
