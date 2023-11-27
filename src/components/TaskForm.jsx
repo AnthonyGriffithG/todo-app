@@ -8,14 +8,14 @@ const TaskForm = ({ onAddTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title) return;
-    
-    onAddTask(title, id);
+
+    onAddTask(title.trim(), id);
     setId(id + 1);
     setTitle('');
   }
 
   const handleInputChange = (e) => {
-    setTitle(e.target.value.trim());
+    setTitle(e.target.value);
   }
 
   return (
