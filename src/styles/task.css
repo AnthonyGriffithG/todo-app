@@ -7,4 +7,20 @@
     display: flex;
     align-items: center;
     font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+
+.task-list__item-title {
+    flex-grow: 1;
+}
+
+.task-list__item-icons {
+    display: flex;
+    column-gap: 10px;
+}
+
+.task-icon {
+    color: aqua;
 }

@@ -12,6 +12,10 @@ const todo = () => {
     setList([...list, { title, id }]);
   }
 
+  const deleteTask = id => {
+    setList(list.filter(task => task.id !== id));
+  }
+
   useEffect(() => {
     console.log(list);
   }, [list])
@@ -21,7 +25,7 @@ const todo = () => {
     <div className='todo'>
       <h1 className='title'>Tasks Manager</h1>
       <TaskForm onAddTask={addTask} />
-      <TaskList list={list} />
+      <TaskList list={list} deleteTask={deleteTask} />
     </div>
   )
 }

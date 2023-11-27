@@ -9,6 +9,7 @@ const TaskForm = ({ onAddTask }) => {
     e.preventDefault();
     onAddTask(title, id);
     setId(id + 1);
+    setTitle('');
   }
 
   const handleInputChange = (e) => {
@@ -17,7 +18,7 @@ const TaskForm = ({ onAddTask }) => {
 
   return (
     <form className='task-form' onSubmit={ handleSubmit }>
-        <input className='task-form__input' type="text" placeholder='Type a task' maxLength={ 30 } onChange={ handleInputChange } />
+        <input className='task-form__input' type="text" placeholder='Type a task' maxLength={ 30 } onChange={ handleInputChange } value={title} />
         <button type='submit' className='task-form__button'>Add</button>
     </form> 
   )
