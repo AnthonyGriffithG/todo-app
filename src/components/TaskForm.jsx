@@ -7,6 +7,8 @@ const TaskForm = ({ onAddTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title) return;
+    
     onAddTask(title, id);
     setId(id + 1);
     setTitle('');
