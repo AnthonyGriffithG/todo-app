@@ -16,6 +16,16 @@ const todo = () => {
     setList(list.filter(task => task.id !== id));
   }
 
+  const markTaskAsDone = (id) => {
+    setList(list.map(task => task.id === id? { ...task, isDone: true } : task));
+  }
+
+  const editTask = (id, newTitle) => {
+    setList(list.map(task => {
+      return list.id === id? { ...task, title: newTitle } : task;
+    }))
+  }
+
   useEffect(() => {
     console.log(list);
   }, [list])
@@ -25,7 +35,7 @@ const todo = () => {
     <div className='todo'>
       <h1 className='title'>Tasks Manager</h1>
       <TaskForm onAddTask={addTask} />
-      <TaskList list={list} deleteTask={deleteTask} />
+      <TaskList list={list} deleteTask={deleteTask} markTaskAsDone={markTaskAsDone} />
     </div>
   )
 }

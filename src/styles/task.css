@@ -10,6 +10,12 @@
     display: flex;
     justify-content: space-between;
     column-gap: 20px;
+    transition: background-color 0.7s;
+}
+
+.task-list__item--done {
+    text-decoration: line-through;
+    background-color: #0c0065;
 }
 
 .task-list__item-title {
