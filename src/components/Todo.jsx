@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/todo.css';
 import TaskForm from './TaskForm'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TaskList from './TaskList';
 
 
@@ -25,11 +25,6 @@ const todo = () => {
       return list.id === id? { ...task, title: newTitle } : task;
     }))
   }
-
-  useEffect(() => {
-    console.log(list);
-  }, [list])
-  
 
   return (
     <div className='todo'>
