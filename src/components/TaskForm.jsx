@@ -3,10 +3,12 @@ import '../styles/task-form.css'
 
 const TaskForm = ({ onAddTask }) => {
   const [title, setTitle] = useState('');
+  const [id, setId] = useState(4);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTask(title);
+    onAddTask(title, id);
+    setId(id + 1);
   }
 
   const handleInputChange = (e) => {
