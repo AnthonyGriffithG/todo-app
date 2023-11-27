@@ -28,7 +28,7 @@ const todo = () => {
 
   return (
     <div className='todo'>
-      <h1 className='title'>Tasks Manager</h1>
+      <h1 className='title'><span className='title__first-word'>Tasks</span> Manager</h1>
       <TaskForm onAddTask={addTask} />
       <TaskList list={list} deleteTask={deleteTask} markTaskAsDone={markTaskAsDone} />
     </div>

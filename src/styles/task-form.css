@@ -1,8 +1,7 @@
 .task-form {
     display: flex;
     width: 100%;
-    border-radius: 12px;
-    box-shadow: #99ff9c30 0px 1px 2px 0px, #99ff9c15 0px 2px 6px 2px;
+    overflow: hidden;
 }
 
 .task-form__input {
@@ -10,22 +9,27 @@
     height: 20px;
     padding: 1em;
     font-family: Poppins;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     outline: none;
-    border: none;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #00ffff;
+    background-color: #161a2b;
+    color: white;
 }
 
 .task-form__button {
     border: none;
+    border-radius: 0 4px 4px 0;
     background-color: #00ffff;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
     font-weight: 600;
     min-width: 70px;
     text-transform: uppercase;
     transition: background-color 0.2s;
     cursor: pointer;
+    background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 1) 0%,
+    rgb(132, 255, 255) 100%
+  );
 }
 
 .task-form__button:active {
