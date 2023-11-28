@@ -1,7 +1,6 @@
 .task-form {
     display: flex;
     width: 100%;
-    overflow: hidden;
 }
 
 .task-form__input {
@@ -19,19 +18,19 @@
 .task-form__button {
     border: none;
     border-radius: 0 4px 4px 0;
-    background-color: #00ffff;
     font-weight: 600;
     min-width: 70px;
     text-transform: uppercase;
     transition: background-color 0.2s;
     cursor: pointer;
+    color: #161616;
     background: linear-gradient(
     90deg,
     rgba(0, 255, 255, 1) 0%,
-    rgb(132, 255, 255) 100%
+    rgb(142, 255, 255) 100%
   );
 }
 
 .task-form__button:active {
-    background-color: #019797;
+    background-color: #00ffff;
 }

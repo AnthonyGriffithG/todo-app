@@ -4,8 +4,13 @@
     align-items: center;
     width: 100%;
     height: calc(100vh - 2em);
+    overflow: hidden;
 }
 
 .title {
     text-align: center;
+}
+
+.title__first-word {
+    color: rgb(123, 86, 255);
 }

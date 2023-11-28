@@ -1,7 +1,6 @@
 .task-list__item {
-    min-height: 40px;
     border-radius: 6px;
-    background-color: rgb(18, 53, 58) ;
+    background-color: rgb(65, 27, 202) ;
     border: 2px solid #b2b2b2;
     padding: 0 1em;
     display: flex;
@@ -11,6 +10,7 @@
     justify-content: space-between;
     column-gap: 20px;
     transition: background-color 0.7s;
+    animation: slideIn 0.5s;
 }
 
 .task-list__item--done {
@@ -29,4 +29,16 @@
 
 .task-icon {
     color: aqua;
+}
+
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
 }
