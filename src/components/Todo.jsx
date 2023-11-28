@@ -9,7 +9,7 @@ const todo = () => {
   const [list, setList] = useState([{title: 'example task 1', id: 1}, {title: 'example task 2', id: 2}, {title: 'example task 3', id: 3}]);
 
   const addTask = (title, id) => { 
-    setList([...list, { title, id }]);
+    setList([ { title, id }, ...list]);
   }
 
   const deleteTask = id => {
