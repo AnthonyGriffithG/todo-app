@@ -17,7 +17,7 @@ const Task = ({ id, title, isDone, deleteTask, markTaskAsDone }) => {
         <p className='task-list__item-title'>{title}</p> 
         <span className='task-list__item-icons'>
             <FaTrashAlt className='task-icon' size={18} onClick={deleteTaskHandler} />
-            <FaCheckCircle className='task-icon' size={18} onClick={markTaskAsDoneHandler} />
+            {isDone || <FaCheckCircle className='task-icon' size={18} onClick={markTaskAsDoneHandler} />}
         </span>
     </li>
   )
