@@ -1,6 +1,6 @@
 .task-list__item {
   border-radius: 6px;
-  background-color: rgb(220, 213, 85);
+  background-color: rgb(227, 221, 108);
   border: 2px solid #b2b2b2;
   color: #000;
   padding: 0 1em;
@@ -11,7 +11,7 @@
   justify-content: space-between;
   column-gap: 20px;
   transition: background-color 0.7s;
-  animation: slideIn 0.5s;
+  animation: bounce 0.5s;
   font-weight: 400;
 }
 
@@ -23,6 +23,7 @@
 
 .task-list__item-title {
   flex-grow: 1;
+  word-break: break-all;
 }
 
 .task-list__item-icons {
@@ -38,7 +39,7 @@
   color: #fff;
 }
 
-@keyframes slideIn {
+@keyframes bounce {
   0% {
     transform: scale(1);
   }
@@ -54,6 +55,11 @@
 
 @media screen and (min-width: 768px) {
   .task-list__item {
-    height: 100px;
+    height: 80px;
+  }
+  .task-list__item-icons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 }

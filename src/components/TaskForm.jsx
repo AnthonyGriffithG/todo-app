@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/task-form.css";
 
 const TaskForm = ({ onAddTask }) => {
   const [title, setTitle] = useState("");
-  const [id, setId] = useState(4);
+  const [id, setId] = useState(Number(localStorage.getItem("id")) || 4);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +17,10 @@ const TaskForm = ({ onAddTask }) => {
   const handleInputChange = (e) => {
     setTitle(e.target.value);
   };
+
+  useEffect(() => {
+    localStorage.setItem("id", id);
+  }, [id]);
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>

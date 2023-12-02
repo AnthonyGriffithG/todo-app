@@ -1,15 +1,17 @@
 import React from "react";
 import "../styles/todo.css";
 import TaskForm from "./TaskForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskList from "./TaskList";
 
 const todo = () => {
-  const [list, setList] = useState([
-    { title: "example task 1", id: 1 },
-    { title: "example task 2", id: 2 },
-    { title: "example task 3", id: 3 },
-  ]);
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || [
+      { title: "example task 1", id: 1 },
+      { title: "example task 2", id: 2 },
+      { title: "example task 3", id: 3 },
+    ]
+  );
 
   const addTask = (title, id) => {
     setList([{ title, id }, ...list]);
@@ -32,6 +34,10 @@ const todo = () => {
       })
     );
   };
+
+  useEffect(() => {
+    list.length && localStorage.setItem("tasks", JSON.stringify(list));
+  }, [list]);
 
   return (
     <div className="todo">
