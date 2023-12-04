@@ -1,16 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/task-form.css";
 
-const TaskForm = ({ onAddTask }) => {
+const TaskForm = ({
+  onAddTask,
+  onEditTask,
+  taskBeingEdited,
+  setTaskBeingEdited,
+}) => {
   const [title, setTitle] = useState("");
   const [id, setId] = useState(Number(localStorage.getItem("id")) || 4);
+  const inputRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title.trim()) return;
+    if (!title.trim()) return setTaskBeingEdited(null);
 
-    onAddTask(title.trim(), id);
-    setId(id + 1);
+    if (!taskBeingEdited) {
+      onAddTask(title.trim(), id);
+      setId(id + 1);
+    } else {
+      onEditTask(taskBeingEdited.id, title);
+      setTaskBeingEdited(null);
+    }
     setTitle("");
   };
 
@@ -22,8 +33,18 @@ const TaskForm = ({ onAddTask }) => {
     localStorage.setItem("id", id);
   }, [id]);
 
+  useEffect(() => {
+    if (taskBeingEdited) {
+      setTitle(taskBeingEdited.title);
+      inputRef.current.focus();
+    }
+  }, [taskBeingEdited]);
+
   return (
-    <form className="task-form" onSubmit={handleSubmit}>
+    <form
+      className={`task-form ${taskBeingEdited ? "edit" : ""}`}
+      onSubmit={handleSubmit}
+    >
       <input
         className="task-form__input"
         type="text"
@@ -31,9 +52,10 @@ const TaskForm = ({ onAddTask }) => {
         maxLength={30}
         onChange={handleInputChange}
         value={title}
+        ref={inputRef}
       />
       <button type="submit" className="task-form__button">
-        Add
+        {!taskBeingEdited ? "Add" : "Edit"}
       </button>
     </form>
   );

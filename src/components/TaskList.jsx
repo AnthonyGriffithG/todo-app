@@ -2,7 +2,13 @@ import React from "react";
 import Task from "./Task";
 import "../styles/task-list.css";
 
-const TaskList = ({ list, deleteTask, markTaskAsDone }) => {
+const TaskList = ({
+  list,
+  deleteTask,
+  markTaskAsDone,
+  editTask,
+  setTaskBeingEdited,
+}) => {
   return (
     <ul className="task-list">
       <div className="items-container">
@@ -13,6 +19,7 @@ const TaskList = ({ list, deleteTask, markTaskAsDone }) => {
             isDone={task.isDone}
             deleteTask={deleteTask}
             markTaskAsDone={markTaskAsDone}
+            setTaskBeingEdited={setTaskBeingEdited}
             key={task.id}
           />
         ))}

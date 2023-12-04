@@ -14,7 +14,12 @@
   background-color: #161a2b;
   color: white;
   font-size: 16px;
-  min-width: 180px;
+  min-width: 150px;
+  transition: border 0.3s;
+}
+
+.task-form.edit .task-form__input {
+  border: 2px solid rgb(44, 251, 165);
 }
 
 .task-form__button {
@@ -31,8 +36,21 @@
     rgba(0, 255, 255, 1) 0%,
     rgb(142, 255, 255) 100%
   );
+  transition: background 0.3s;
+}
+
+.task-form.edit .task-form__button {
+  background: linear-gradient(
+    90deg,
+    rgb(44, 251, 165) 0%,
+    rgb(183, 255, 236) 100%
+  );
 }
 
 .task-form__button:active {
   background-color: #00ffff;
+}
+
+.task-form.edit .task-form__button:active {
+  background-color: rgb(44, 251, 165);
 }

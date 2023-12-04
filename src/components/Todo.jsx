@@ -3,6 +3,7 @@ import "../styles/todo.css";
 import TaskForm from "./TaskForm";
 import { useState, useEffect } from "react";
 import TaskList from "./TaskList";
+import { toast } from "react-toastify";
 
 const todo = () => {
   const [list, setList] = useState(
@@ -12,9 +13,11 @@ const todo = () => {
       { title: "example task 3", id: 3 },
     ]
   );
+  const [taskBeingEdited, setTaskBeingEdited] = useState(null);
 
   const addTask = (title, id) => {
     setList([{ title, id }, ...list]);
+    toast.success("Task added successfully!");
   };
 
   const deleteTask = (id) => {
@@ -30,9 +33,10 @@ const todo = () => {
   const editTask = (id, newTitle) => {
     setList(
       list.map((task) => {
-        return list.id === id ? { ...task, title: newTitle } : task;
+        return task.id === id ? { ...task, title: newTitle } : task;
       })
     );
+    toast.success("Task edited successfully!");
   };
 
   useEffect(() => {
@@ -44,11 +48,17 @@ const todo = () => {
       <h1 className="title">
         <span className="title__first-word">Tasks</span> Manager
       </h1>
-      <TaskForm onAddTask={addTask} />
+      <TaskForm
+        onAddTask={addTask}
+        onEditTask={editTask}
+        taskBeingEdited={taskBeingEdited}
+        setTaskBeingEdited={setTaskBeingEdited}
+      />
       <TaskList
         list={list}
         deleteTask={deleteTask}
         markTaskAsDone={markTaskAsDone}
+        setTaskBeingEdited={setTaskBeingEdited}
       />
       <footer></footer>
     </div>
