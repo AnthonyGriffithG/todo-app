@@ -14,6 +14,7 @@
   background-color: #161a2b;
   color: white;
   font-size: 16px;
+  min-width: 180px;
 }
 
 .task-form__button {
