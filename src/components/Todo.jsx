@@ -59,6 +59,7 @@ const todo = () => {
         deleteTask={deleteTask}
         markTaskAsDone={markTaskAsDone}
         setTaskBeingEdited={setTaskBeingEdited}
+        taskBeingEdited={taskBeingEdited}
       />
       <footer></footer>
     </div>

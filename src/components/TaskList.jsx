@@ -6,8 +6,8 @@ const TaskList = ({
   list,
   deleteTask,
   markTaskAsDone,
-  editTask,
   setTaskBeingEdited,
+  taskBeingEdited,
 }) => {
   return (
     <ul className="task-list">
@@ -20,6 +20,7 @@ const TaskList = ({
             deleteTask={deleteTask}
             markTaskAsDone={markTaskAsDone}
             setTaskBeingEdited={setTaskBeingEdited}
+            taskBeingEdited={taskBeingEdited}
             key={task.id}
           />
         ))}

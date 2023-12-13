@@ -1,6 +1,10 @@
 .task-form {
-  display: flex;
   width: 100%;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  display: flex;
 }
 
 .task-form__input {
@@ -53,4 +57,32 @@
 
 .task-form.edit .task-form__button:active {
   background-color: rgb(44, 251, 165);
+}
+
+.cancel-edit-btn {
+  width: 100%;
+  background-color: rgb(165, 9, 9);
+  color: #fff;
+  padding: 1em 2em;
+  border: solid 1px #fff;
+  border-radius: 10px;
+  margin-top: 1em;
+}
+
+.disappear {
+  animation: disappear 0.5s forwards;
+}
+
+@keyframes disappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(0);
+  }
 }

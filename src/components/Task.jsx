@@ -11,6 +11,7 @@ const Task = ({
   deleteTask,
   markTaskAsDone,
   setTaskBeingEdited,
+  taskBeingEdited,
 }) => {
   const deleteTaskHandler = () => deleteTask(id);
 
@@ -27,11 +28,13 @@ const Task = ({
             onClick={markTaskAsDoneHandler}
           />
         )}
-        <MdEditSquare
-          className="task-icon"
-          size={18}
-          onClick={() => setTaskBeingEdited({ id, title })}
-        />
+        {!isDone && taskBeingEdited?.id !== id && (
+          <MdEditSquare
+            className="task-icon"
+            size={18}
+            onClick={() => setTaskBeingEdited({ id, title })}
+          />
+        )}
         <FaTrashAlt
           className="task-icon"
           size={18}
